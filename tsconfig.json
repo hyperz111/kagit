@@ -1,10 +1,10 @@
 {
-  "extends": "@hyperz111/tsconfig",
-  "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    "types": ["node"],
-    "noUnusedParameters": true
-  },
-  "include": ["test"]
+	"extends": "@hyperz111/tsconfig",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"types": ["node"],
+		"noUnusedParameters": true
+	},
+	"include": ["test"]
 }

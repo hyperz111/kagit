@@ -1,17 +1,20 @@
-import * as packageJson from 'prettier-plugin-packagejson'
+import config from "@hyperz111/prettier-config";
 
 export default {
-  semi: false,
-  bracketSpacing: false,
-  trailingComma: 'none',
-  singleQuote: true,
-  plugins: [packageJson],
-  overrides: [
-    {
-      files: './bin/kagit.js',
-      options: {
-        printWidth: Infinity
-      }
-    }
-  ]
-}
+	overrides: [
+		{
+			files: "./bin/kagit.js",
+			options: {
+				printWidth: Infinity,
+				semi: false,
+				bracketSpacing: false,
+				trailingComma: "none",
+				singleQuote: true,
+			},
+		},
+		{
+			files: "!./bin/kagit.js",
+			options: config,
+		},
+	],
+};

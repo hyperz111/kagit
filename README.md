@@ -11,9 +11,9 @@ $ npm install kagit
 ## Usage
 
 ```js
-import mod from 'kagit'
+import mod from "kagit";
 
-mod() // => true
+mod(); // => true
 ```
 
 ## API
