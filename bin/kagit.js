@@ -7,14 +7,15 @@ let k = 'package.json',
   n = ' not found',
   x = process.exit,
   e = console.error,
-  d = r(g, 'hooks')
+  d = r(g, 'hooks'),
+  o = {force: true, recursive: true}
 
 if (process.env.KAGIT != '0') {
   f.existsSync(g) || e(g + n) || x(1)
   f.existsSync(k) || e(k + n) || x(1)
 
-  f.rmSync(d, {force: true, recursive: true})
-  f.mkdirSync(d, {recursive: true})
+  f.rmSync(d, o)
+  f.mkdirSync(d, o)
 
   k = JSON.parse(f.readFileSync(k, 'utf8')).kagit || {}
   for (g in k) f.writeFileSync(r(d, g), '#!/bin/sh\n' + k[g], {mode: 0o755})
