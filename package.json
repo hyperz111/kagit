@@ -2,25 +2,21 @@
   "name": "kagit",
   "version": "0.0.0",
   "description": "Minimal Git Hooks",
-  "keywords": [],
-  "repository": "https://github.com/hyperz111/kagit.git",
+  "keywords": [
+    "minimal",
+    "git",
+    "hooks"
+  ],
+  "repository": "hyperz111/kagit",
   "license": "MIT",
-  "author": "Hyper-Z11 (https://github.com/hyperz111)",
-  "sideEffects": false,
+  "author": "Hyper-Z11",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
-  },
+  "bin": "bin/kagit.js",
   "files": [
-    "dist"
+    "bin"
   ],
   "scripts": {
-    "build": "tsc",
     "format": "prettier -w .",
-    "prepublishOnly": "pnpm run build",
     "test": "node --test",
     "types": "tsc --noEmit"
   },
