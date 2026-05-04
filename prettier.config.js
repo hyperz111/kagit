@@ -5,5 +5,13 @@ export default {
   bracketSpacing: false,
   trailingComma: 'none',
   singleQuote: true,
-  plugins: [packageJson]
+  plugins: [packageJson],
+  overrides: [
+    {
+      files: './bin/kagit.js',
+      options: {
+        printWidth: Infinity
+      }
+    }
+  ]
 }
