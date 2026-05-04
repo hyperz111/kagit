@@ -41,7 +41,7 @@ describe('kagit', () => {
     test('skipped', (t) => {
       const spawn = spawnSync('node', [bin], {
         ...baseSpawnOptions,
-        env: {KAGIT_SKIP_INSTALL: '1'}
+        env: {KAGIT: '0'}
       })
       t.assert.deepEqual(spawn.status, 0)
 
@@ -68,10 +68,11 @@ describe('kagit', () => {
       spawnSync('node', [bin], baseSpawnOptions)
       spawnSync('git', ['add', '.'], baseSpawnOptions)
 
-      const commit = spawnSync('git', ['commit', '-am', 'initial'], {
-        ...baseSpawnOptions,
-        env: {...process.env, KAGIT_SKIP_HOOKS: '1'}
-      })
+      const commit = spawnSync(
+        'git',
+        ['commit', '-am', 'initial', '--no-verify'],
+        baseSpawnOptions
+      )
       t.assert.deepEqual(commit.status, 0)
       t.assert.deepEqual(commit.stderr, '')
     })
