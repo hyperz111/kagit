@@ -1,3 +1,9 @@
-import config from "@hyperz111/prettier-config";
+import * as packageJson from 'prettier-plugin-packagejson'
 
-export default config;
+export default {
+  semi: false,
+  bracketSpacing: false,
+  trailingComma: 'none',
+  singleQuote: true,
+  plugins: [packageJson]
+}
