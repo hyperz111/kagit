@@ -14,6 +14,6 @@ delete packageJson.kagit;
 
 fs.writeFileSync(path.join(destination, "package.json"), JSON.stringify(packageJson));
 
-spawnSync("pnpm", ["publish"], { stdio: "inherit", cwd: destination });
+spawnSync("pnpm", ["publish", "--no-git-checks"], { stdio: "inherit", cwd: destination });
 
 fs.rmSync(destination, { recursive: true, force: true });
