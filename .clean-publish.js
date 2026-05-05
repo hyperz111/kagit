@@ -9,4 +9,5 @@ class Keep extends RegExp {
 export default {
 	files: [new Keep()],
 	fields: ["kagit", "packageManager", "scripts"],
+	packageManager: "pnpm",
 };
