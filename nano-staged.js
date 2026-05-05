@@ -1,4 +1,5 @@
 /** @type {import("nano-staged").Configuration} */
 export default {
-	"*": () => "pnpm format",
+	"*": "pnpm exec prettier -w",
+	"**/*.js": () => "pnpm run types",
 };
