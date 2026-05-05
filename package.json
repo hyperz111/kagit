@@ -24,11 +24,12 @@
 		"@hyperz111/prettier-config": "^1.1.0",
 		"@hyperz111/tsconfig": "^1",
 		"@types/node": "^25.6.0",
+		"nano-staged": "^1.0.2",
 		"prettier": "^3",
 		"typescript": "^6"
 	},
 	"packageManager": "pnpm@10.15.0",
 	"kagit": {
-		"pre-commit": "pnpm format"
+		"pre-commit": "pnpm exec nano-staged"
 	}
 }
