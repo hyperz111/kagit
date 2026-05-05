@@ -80,7 +80,7 @@ This tool is inspired by some populer similar tools:
 
 ## Name?
 
-`kagit` (_/kagit/_) is an acroymn of **"Kait Git"**, which is the Indonesia words of **"Git Hooks"**.
+`kagit` (_/ka-git/_) is an acroymn of **"Kait Git"**, which is the Indonesian for **"Git Hooks"**.
 
 ## License
 
