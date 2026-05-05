@@ -38,6 +38,14 @@ describe("kagit", () => {
 			assert.deepEqual(hooks[0], "pre-commit");
 		});
 
+		test("fail", () => {
+			fs.readdirSync(cwd).forEach((file) => fs.rmSync(path.join(cwd, file), { force: true, recursive: true }));
+
+			const spawn = spawnSync("node", [bin], baseSpawnOptions);
+			assert.deepEqual(spawn.status, 1);
+			assert.deepEqual(spawn.stderr, ".git not found\n");
+		});
+
 		test("skipped", () => {
 			const spawn = spawnSync("node", [bin], {
 				...baseSpawnOptions,
