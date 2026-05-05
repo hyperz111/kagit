@@ -140,3 +140,5 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+# Publish folder
+/scripts/publish-*
