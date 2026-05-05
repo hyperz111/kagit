@@ -15,7 +15,10 @@ describe("kagit", () => {
 	beforeEach(() => {
 		cwd = fs.mkdtempSync(path.join(tmpdir(), "kagit-"));
 		baseSpawnOptions.cwd = cwd;
+
 		spawnSync("git", ["init"], baseSpawnOptions);
+		spawnSync("git", ["config", "user.email", "hyperz111@github.com"], baseSpawnOptions);
+		spawnSync("git", ["config", "user.name", "hyperz111"], baseSpawnOptions);
 		spawnSync("npm", ["init", "-y"], baseSpawnOptions);
 
 		const packageJson = path.resolve(cwd, "package.json");
@@ -51,7 +54,7 @@ describe("kagit", () => {
 		test("skipped", () => {
 			const spawn = spawnSync("node", [bin], {
 				...baseSpawnOptions,
-				env: { KAGIT: "0" },
+				env: { ...process.env, KAGIT: "0" },
 			});
 			console.log(3, spawn);
 			assert.strictEqual(spawn.status, 0);
