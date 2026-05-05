@@ -14,12 +14,9 @@
 	"files": [
 		"bin"
 	],
-	"kagit": {
-	  "pre-commit": "pnpm format"
-	},
 	"scripts": {
-		"prepare": "node ./bin/kagit.js",
 		"format": "prettier -w .",
+		"prepare": "node ./bin/kagit.js",
 		"test": "node --test",
 		"types": "tsc --noEmit"
 	},
@@ -30,5 +27,8 @@
 		"prettier": "^3",
 		"typescript": "^6"
 	},
-	"packageManager": "pnpm@10.15.0"
+	"packageManager": "pnpm@10.15.0",
+	"kagit": {
+		"pre-commit": "pnpm format"
+	}
 }
