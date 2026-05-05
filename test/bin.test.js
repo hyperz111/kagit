@@ -3,18 +3,18 @@ import * as path from "node:path";
 import * as fs from "node:fs";
 import { tmpdir } from "node:os";
 import { spawnSync } from "node:child_process";
-/** @import { SpawnSyncOptions, SpawnSyncReturns } from 'node:child_process' */
+import * as assert from "node:assert/strict";
 
 describe("kagit", () => {
 	const bin = path.resolve(import.meta.dirname, "..", "bin", "kagit.js");
 	/** @type {string} */
 	let cwd;
-	/** @type {SpawnSyncOptions} */
-	let baseSpawnOptions;
+	/** @type {import("node:child_process").SpawnSyncOptions} */
+	const baseSpawnOptions = { encoding: "utf8" };
 
 	beforeEach(() => {
 		cwd = fs.mkdtempSync(path.join(tmpdir(), "kagit-"));
-		baseSpawnOptions = { cwd, encoding: "utf8" };
+		baseSpawnOptions.cwd = cwd;
 		spawnSync("git", ["init"], baseSpawnOptions);
 		spawnSync("npm", ["init", "-y"], baseSpawnOptions);
 
@@ -29,44 +29,44 @@ describe("kagit", () => {
 	});
 
 	describe("installation", () => {
-		test("success", (t) => {
+		test("success", () => {
 			const spawn = spawnSync("node", [bin], baseSpawnOptions);
-			t.assert.deepEqual(spawn.status, 0);
+			assert.deepEqual(spawn.status, 0);
 
 			const hooks = fs.readdirSync(path.resolve(cwd, ".git", "hooks"));
-			t.assert.deepEqual(hooks.length, 1);
-			t.assert.deepEqual(hooks[0], "pre-commit");
+			assert.deepEqual(hooks.length, 1);
+			assert.deepEqual(hooks[0], "pre-commit");
 		});
 
-		test("skipped", (t) => {
+		test("skipped", () => {
 			const spawn = spawnSync("node", [bin], {
 				...baseSpawnOptions,
 				env: { KAGIT: "0" },
 			});
-			t.assert.deepEqual(spawn.status, 0);
+			assert.deepEqual(spawn.status, 0);
 
 			const hooks = fs.readdirSync(path.resolve(cwd, ".git", "hooks"));
-			t.assert.ok(hooks.length > 0);
+			assert.ok(hooks.length > 0);
 		});
 	});
 
 	describe("hook", () => {
-		test("success", (t) => {
+		test("success", () => {
 			spawnSync("node", [bin], baseSpawnOptions);
 			spawnSync("git", ["add", "."], baseSpawnOptions);
 
 			const commit = spawnSync("git", ["commit", "-am", "initial"], baseSpawnOptions);
-			t.assert.deepEqual(commit.status, 0);
-			t.assert.deepEqual(commit.stderr, "hi\n");
+			assert.deepEqual(commit.status, 0);
+			assert.deepEqual(commit.stderr, "hi\n");
 		});
 
-		test("skipped", (t) => {
+		test("skipped", () => {
 			spawnSync("node", [bin], baseSpawnOptions);
 			spawnSync("git", ["add", "."], baseSpawnOptions);
 
 			const commit = spawnSync("git", ["commit", "-am", "initial", "--no-verify"], baseSpawnOptions);
-			t.assert.deepEqual(commit.status, 0);
-			t.assert.deepEqual(commit.stderr, "");
+			assert.deepEqual(commit.status, 0);
+			assert.deepEqual(commit.stderr, "");
 		});
 	});
 });
