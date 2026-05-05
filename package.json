@@ -11,9 +11,6 @@
 	"author": "Hyper-Z11",
 	"type": "module",
 	"bin": "bin/kagit.js",
-	"files": [
-		"bin"
-	],
 	"scripts": {
 		"format": "prettier -w .",
 		"prepare": "node ./bin/kagit.js",
@@ -24,6 +21,7 @@
 		"@hyperz111/prettier-config": "^1.1.0",
 		"@hyperz111/tsconfig": "^1",
 		"@types/node": "^25.6.0",
+		"clean-publish": "^7.0.1",
 		"nano-staged": "^1.0.2",
 		"prettier": "^3",
 		"typescript": "^6"
