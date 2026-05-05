@@ -71,6 +71,13 @@ You must run `kagit` again (reinstall):
 npx kagit
 ```
 
+## Credits
+
+This tool is inspired by some populer similar tools:
+
+- [`husky`](https://github.com/typicode/husky)
+- [`simple-git-hooks`](https://github.com/toplenboren/simple-git-hooks)
+
 ## License
 
 MIT
