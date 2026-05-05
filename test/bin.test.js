@@ -31,19 +31,21 @@ describe("kagit", () => {
 	describe("installation", () => {
 		test("success", () => {
 			const spawn = spawnSync("node", [bin], baseSpawnOptions);
-			assert.deepEqual(spawn.status, 0);
+			console.log(1, spawn);
+			assert.strictEqual(spawn.status, 0);
 
 			const hooks = fs.readdirSync(path.resolve(cwd, ".git", "hooks"));
-			assert.deepEqual(hooks.length, 1);
-			assert.deepEqual(hooks[0], "pre-commit");
+			assert.strictEqual(hooks.length, 1);
+			assert.strictEqual(hooks[0], "pre-commit");
 		});
 
 		test("fail", () => {
 			fs.readdirSync(cwd).forEach((file) => fs.rmSync(path.join(cwd, file), { force: true, recursive: true }));
 
 			const spawn = spawnSync("node", [bin], baseSpawnOptions);
-			assert.deepEqual(spawn.status, 1);
-			assert.deepEqual(spawn.stderr, ".git not found\n");
+			console.log(2, spawn);
+			assert.strictEqual(spawn.status, 1);
+			assert.strictEqual(spawn.stderr, ".git not found\n");
 		});
 
 		test("skipped", () => {
@@ -51,7 +53,8 @@ describe("kagit", () => {
 				...baseSpawnOptions,
 				env: { KAGIT: "0" },
 			});
-			assert.deepEqual(spawn.status, 0);
+			console.log(3, spawn);
+			assert.strictEqual(spawn.status, 0);
 
 			const hooks = fs.readdirSync(path.resolve(cwd, ".git", "hooks"));
 			assert.ok(hooks.length > 0);
@@ -64,8 +67,9 @@ describe("kagit", () => {
 			spawnSync("git", ["add", "."], baseSpawnOptions);
 
 			const commit = spawnSync("git", ["commit", "-am", "initial"], baseSpawnOptions);
-			assert.deepEqual(commit.status, 0);
-			assert.deepEqual(commit.stderr, "hi\n");
+			console.log(4, commit);
+			assert.strictEqual(commit.status, 0);
+			assert.strictEqual(commit.stderr, "hi\n");
 		});
 
 		test("skipped", () => {
@@ -73,8 +77,9 @@ describe("kagit", () => {
 			spawnSync("git", ["add", "."], baseSpawnOptions);
 
 			const commit = spawnSync("git", ["commit", "-am", "initial", "--no-verify"], baseSpawnOptions);
-			assert.deepEqual(commit.status, 0);
-			assert.deepEqual(commit.stderr, "");
+			console.log(5, commit);
+			assert.strictEqual(commit.status, 0);
+			assert.strictEqual(commit.stderr, "");
 		});
 	});
 });
