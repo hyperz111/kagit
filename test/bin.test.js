@@ -75,7 +75,7 @@ describe("kagit", () => {
 			spawnSync("node", [bin], baseSpawnOptions);
 			spawnSync("git", ["add", "."], baseSpawnOptions);
 
-			const commit = spawnSync("git", ["commit", "-am", "initial", "--no-verify"], baseSpawnOptions);
+			const commit = spawnSync("git", ["commit", "-am", "initial", "--no-verify"], baseSpawnOptions)
 			assert.strictEqual(commit.status, 0);
 			assert.strictEqual(commit.stderr, "");
 		});
