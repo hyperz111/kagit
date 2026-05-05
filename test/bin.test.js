@@ -34,7 +34,6 @@ describe("kagit", () => {
 	describe("installation", () => {
 		test("success", () => {
 			const spawn = spawnSync("node", [bin], baseSpawnOptions);
-			console.log(1, spawn);
 			assert.strictEqual(spawn.status, 0);
 
 			const hooks = fs.readdirSync(path.resolve(cwd, ".git", "hooks"));
@@ -46,7 +45,6 @@ describe("kagit", () => {
 			fs.readdirSync(cwd).forEach((file) => fs.rmSync(path.join(cwd, file), { force: true, recursive: true }));
 
 			const spawn = spawnSync("node", [bin], baseSpawnOptions);
-			console.log(2, spawn);
 			assert.strictEqual(spawn.status, 1);
 			assert.strictEqual(spawn.stderr, ".git not found\n");
 		});
@@ -56,7 +54,6 @@ describe("kagit", () => {
 				...baseSpawnOptions,
 				env: { ...process.env, KAGIT: "0" },
 			});
-			console.log(3, spawn);
 			assert.strictEqual(spawn.status, 0);
 
 			const hooks = fs.readdirSync(path.resolve(cwd, ".git", "hooks"));
@@ -70,7 +67,6 @@ describe("kagit", () => {
 			spawnSync("git", ["add", "."], baseSpawnOptions);
 
 			const commit = spawnSync("git", ["commit", "-am", "initial"], baseSpawnOptions);
-			console.log(4, commit);
 			assert.strictEqual(commit.status, 0);
 			assert.strictEqual(commit.stderr, "hi\n");
 		});
@@ -80,7 +76,6 @@ describe("kagit", () => {
 			spawnSync("git", ["add", "."], baseSpawnOptions);
 
 			const commit = spawnSync("git", ["commit", "-am", "initial", "--no-verify"], baseSpawnOptions);
-			console.log(5, commit);
 			assert.strictEqual(commit.status, 0);
 			assert.strictEqual(commit.stderr, "");
 		});
