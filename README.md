@@ -78,6 +78,10 @@ This tool is inspired by some populer similar tools:
 - [`husky`](https://github.com/typicode/husky)
 - [`simple-git-hooks`](https://github.com/toplenboren/simple-git-hooks)
 
+## Name?
+
+`kagit` (_/kagit/_) is an acroymn of **"Kait Git"**, which is the Indonesia words of **"Git Hooks"**.
+
 ## License
 
 MIT
