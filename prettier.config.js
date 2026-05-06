@@ -4,7 +4,7 @@ import config from "@hyperz111/prettier-config";
 export default {
 	overrides: [
 		{
-			files: "./bin/kagit.js",
+			files: "./bin",
 			options: {
 				printWidth: Infinity,
 				semi: false,
@@ -14,7 +14,7 @@ export default {
 			},
 		},
 		{
-			files: "!./bin/kagit.js",
+			files: "!./bin",
 			options: config,
 		},
 	],

@@ -1,26 +1,26 @@
-# kagit
+# kagitin
 
 Minimal Git Hooks.
 
-> [!TIP]
+> [!NOTE]
 > Please see [Under the hood](#under-the-hood)
 
 ## Install
 
 ```sh
-$ npm install kagit --save-dev
+$ npm install kagitin --save-dev
 ```
 
 ## Usage
 
 ### Preparing
 
-Add hook script to `kagit` property in `package.json`:
+Add hook script to `kagitin` property in `package.json`:
 
 ```jsonc
 {
 	// ...
-	"kagit": {
+	"kagitin": {
 		"pre-commit": "echo 'Commiting...'",
 	},
 	// ...
@@ -33,7 +33,7 @@ Add this `prepare` script in `package.json`:
 {
 	// ...
 	"scripts": {
-		"prepare": "kagit",
+		"prepare": "kagitin",
 	},
 	// ...
 }
@@ -60,7 +60,7 @@ If you change the hook script:
 ```jsonc
 {
 	// ...
-	"kagit": {
+	"kagitin": {
 		"pre-commit": "echo 'Commiting your changes...'", // Change the script
 		"pre-push": "echo 'Pushing...'", // Add pre-push hook
 	},
@@ -68,10 +68,10 @@ If you change the hook script:
 }
 ```
 
-You must run `kagit` again (reinstall):
+You must run `kagitin` again (reinstall):
 
 ```sh
-npx kagit
+npx kagitin
 ```
 
 > [!TIP]
@@ -81,11 +81,11 @@ npx kagit
 > {
 > 	// ...
 > 	"scripts": {
-> 		"prepare": "kagit",
+> 		"prepare": "kagitin",
 > 		"hooks:pre-commit": "npx nano-staged", // Now you can change this oftenly without reinstall
 > 	},
 > 	// ...
-> 	"kagit": {
+> 	"kagitin": {
 > 		"pre-commit": "npm run hooks:pre-commit",
 > 	},
 > 	// ...
@@ -98,12 +98,12 @@ If you want to skip the installation, you can set `KAGIT` variable to `0`:
 
 ```sh
 export KAGIT=0
-npx kagit # not doing anything
+npx kagitin # not doing anything
 ```
 
 ## Under the Hood
 
-`kagit` will check if `.git` directory and `package.json` file are available.
+`kagitin` will check if `.git` directory and `package.json` file are available.
 If available, it will cleanup the `.git/hooks/` directory and fill it with scripts based on `package.json` configuration.
 The scripts will be like this:
 
@@ -113,7 +113,7 @@ The scripts will be like this:
 ```
 
 If you see on above, this script only run the command directly without any magic like prepending `PATH`, skip variable, init script, and other.
-Because that, `kagit` is so minimalist and should be used for small projects.
+Because that, `kagitin` is so minimalist and should be used for small projects.
 
 ## Credits
 
@@ -124,7 +124,7 @@ This tool is inspired by some populer similar tools:
 
 ## Name?
 
-`kagit` (_/ka-git/_) is an acroymn of **"Kait Git"**, which is the Indonesian for **"Git Hooks"**.
+The original name of `kagitin` is `kagit` (_/ka-git/_, because the publishing problem), which is an acroymn of **"Kait Git"** (Indonesian for **"Git Hooks"**).
 
 ## License
 

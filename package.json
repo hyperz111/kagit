@@ -1,19 +1,19 @@
 {
-	"name": "kagit",
+	"name": "kagitin",
 	"version": "0.1.0",
 	"description": "Minimal Git Hooks",
 	"keywords": [
 		"git",
 		"hooks"
 	],
-	"repository": "hyperz111/kagit",
+	"repository": "hyperz111/kagitin",
 	"license": "MIT",
 	"author": "Hyper-Z11",
 	"type": "module",
-	"bin": "bin/kagit.js",
+	"bin": "bin/index.js",
 	"scripts": {
 		"format": "prettier -w .",
-		"prepare": "node ./bin/kagit.js",
+		"prepare": "node bin",
 		"test": "node --test",
 		"types": "tsc --noEmit"
 	},
@@ -26,7 +26,7 @@
 		"typescript": "^6"
 	},
 	"packageManager": "pnpm@10.15.0",
-	"kagit": {
+	"kagitin": {
 		"pre-commit": "pnpm exec nano-staged"
 	}
 }

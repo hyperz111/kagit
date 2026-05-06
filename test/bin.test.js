@@ -5,15 +5,15 @@ import { tmpdir } from "node:os";
 import { spawnSync } from "node:child_process";
 import * as assert from "node:assert/strict";
 
-describe("kagit", () => {
-	const bin = path.resolve(import.meta.dirname, "..", "bin", "kagit.js");
+describe("kagitin", () => {
+	const bin = path.resolve(import.meta.dirname, "..", "bin");
 	/** @type {string} */
 	let cwd;
 	/** @type {import("node:child_process").SpawnSyncOptions} */
 	const baseSpawnOptions = { encoding: "utf8" };
 
 	beforeEach(() => {
-		cwd = fs.mkdtempSync(path.join(tmpdir(), "kagit-"));
+		cwd = fs.mkdtempSync(path.join(tmpdir(), "kagitin-"));
 		baseSpawnOptions.cwd = cwd;
 
 		spawnSync("git", ["init"], baseSpawnOptions);
@@ -23,7 +23,7 @@ describe("kagit", () => {
 
 		const packageJson = path.resolve(cwd, "package.json");
 		const content = JSON.parse(fs.readFileSync(packageJson, "utf8"));
-		content.kagit = { "pre-commit": "echo hi" };
+		content.kagitin = { "pre-commit": "echo hi" };
 		fs.writeFileSync(packageJson, JSON.stringify(content));
 	});
 
@@ -52,7 +52,7 @@ describe("kagit", () => {
 		test("skipped", () => {
 			const spawn = spawnSync("node", [bin], {
 				...baseSpawnOptions,
-				env: { ...process.env, KAGIT: "0" },
+				env: { ...process.env, KAGITIN: "0" },
 			});
 			assert.strictEqual(spawn.status, 0);
 
