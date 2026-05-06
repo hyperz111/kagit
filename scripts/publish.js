@@ -10,7 +10,7 @@ const packageJson = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, ".
 delete packageJson.scripts;
 delete packageJson.devDependencies;
 delete packageJson.packageManager;
-delete packageJson.kagit;
+delete packageJson.kagitin;
 
 fs.writeFileSync(path.join(destination, "package.json"), JSON.stringify(packageJson));
 
