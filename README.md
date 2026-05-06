@@ -38,7 +38,7 @@ Add this `prepare` script in `package.json`:
 
 Register:
 
-```console
+```sh
 npm run prepare
 ```
 
@@ -46,7 +46,7 @@ npm run prepare
 
 Just remove the `.git/hooks` directory:
 
-```console
+```sh
 rm -rf .git/hooks
 ```
 
@@ -67,8 +67,17 @@ If you change the hook script:
 
 You must run `kagit` again (reinstall):
 
-```console
+```sh
 npx kagit
+```
+
+### Skip installing
+
+If you want to skip the installation, you can set `KAGIT` variable to `0`:
+
+```sh
+export KAGIT=0
+npx kagit # not doing anything
 ```
 
 ## Credits
