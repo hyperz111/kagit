@@ -94,10 +94,10 @@ npx kagitin
 
 ### Skip installing
 
-If you want to skip the installation, you can set `KAGIT` variable to `0`:
+If you want to skip the installation, you can set `KAGITIN` variable to `0`:
 
 ```sh
-export KAGIT=0
+export KAGITIN=0
 npx kagitin # not doing anything
 ```
 
