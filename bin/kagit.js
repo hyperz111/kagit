@@ -8,7 +8,7 @@ let k = 'package.json',
   x = process.exit,
   e = console.error,
   d = r(g, 'hooks'),
-  o = {force: true, recursive: true}
+  o = {force: !0, recursive: !0}
 
 process.env.KAGIT == '0' && x()
 f.existsSync(g) || e(g + n) || x(1)
