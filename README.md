@@ -71,6 +71,24 @@ You must run `kagit` again (reinstall):
 npx kagit
 ```
 
+> [!TIP]
+> If you oftenly change the hook script, the better way is combine it with [`npm` scripts]().
+>
+> ```jsonc
+> {
+> 	// ...
+> 	"scripts": {
+> 		"prepare": "kagit",
+> 		"hooks:pre-commit": "npx nano-staged", // Now you can change this oftenly without reinstall
+> 	},
+> 	// ...
+> 	"kagit": {
+> 		"pre-commit": "npm run hooks:pre-commit",
+> 	},
+> 	// ...
+> }
+> ```
+
 ### Skip installing
 
 If you want to skip the installation, you can set `KAGIT` variable to `0`:
