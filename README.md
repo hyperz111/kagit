@@ -2,6 +2,9 @@
 
 Minimal Git Hooks.
 
+> [!TIP]
+> Please see [Under the hood](#under-the-hood)
+
 ## Install
 
 ```sh
@@ -97,6 +100,20 @@ If you want to skip the installation, you can set `KAGIT` variable to `0`:
 export KAGIT=0
 npx kagit # not doing anything
 ```
+
+## Under the Hood
+
+`kagit` will check if `.git` directory and `package.json` file are available.
+If available, it will cleanup the `.git/hooks/` directory and fill it with scripts based on `package.json` configuration.
+The scripts will be like this:
+
+```sh
+#!/bin/sh
+# Your script in here
+```
+
+If you see on above, this script only run the command directly without any magic like prepending `PATH`, skip variable, init script, and other.
+Because that, `kagit` is so minimalist and should be used for small projects.
 
 ## Credits
 
