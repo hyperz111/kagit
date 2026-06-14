@@ -15,7 +15,7 @@
 		"format": "prettier -w .",
 		"prepare": "node bin",
 		"test": "node --test",
-		"types": "tsc --noEmit"
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@hyperz111/prettier-config": "^1.1.0",

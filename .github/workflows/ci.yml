@@ -13,5 +13,5 @@ jobs:
           node-version: "22.x"
           cache: "pnpm"
       - run: pnpm install
-      - run: pnpm run types
+      - run: pnpm run typecheck
       - run: pnpm test
