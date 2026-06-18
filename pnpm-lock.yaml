@@ -12,8 +12,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(prettier@3.8.3)(svelte@5.56.3)
       '@hyperz111/tsconfig':
-        specifier: ^1
-        version: 1.0.0
+        specifier: ^2.0.2
+        version: 2.0.2
       '@types/node':
         specifier: ^25.6.0
         version: 25.9.3
@@ -31,8 +31,8 @@ packages:
     peerDependencies:
       prettier: ^3
 
-  '@hyperz111/tsconfig@1.0.0':
-    resolution: {integrity: sha512-V8qwPDHANHA/5d+NDlePKSrxTiQ0c5YOZF03IPZN2eatJi9DeQQ1Z68yBjj9XgdaTL2QU/E42B6l0VDQXCMkMw==}
+  '@hyperz111/tsconfig@2.0.2':
+    resolution: {integrity: sha512-hdz4e68YlAT+o3zjdFNq6hDoEsK6f7HwsLXg2w9jvcqJndGBNGZgYZtOyhKgPrhIkAnps+twhs71JwvlzjNqgg==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -193,7 +193,7 @@ snapshots:
     transitivePeerDependencies:
       - svelte
 
-  '@hyperz111/tsconfig@1.0.0': {}
+  '@hyperz111/tsconfig@2.0.2': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
